@@ -33,7 +33,17 @@
     name: "{{ sshd_service }}"
     enabled: true
     state: started
-  when: sshd_manage_service and ansible_virtualization_type != 'docker'
+  when: >
+    sshd_manage_service
+    and ansible_virtualization_type != 'docker'
+    and ansible_os_family != 'Darwin'
+
+- name: Service enabled and running (macos)
+  raw: launchctl stop com.openssh.sshd
+  when: >
+    sshd_manage_service
+    and ansible_virtualization_type != 'docker'
+    and ansible_os_family == 'Darwin'
 
 - name: Register that this role has run
   set_fact: sshd_has_run=true
