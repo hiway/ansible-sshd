@@ -29,6 +29,9 @@ galaxy_info:
   - name: OpenBSD
     versions:
     - 6.0
+  - name: MacOS
+    versions:
+    - 10.12 (Sierra)
   galaxy_tags:
   - networking
   - system
@@ -42,4 +45,5 @@ galaxy_info:
   - redhat
   - freebsd
   - openbsd
+  - macos
 dependencies: []
