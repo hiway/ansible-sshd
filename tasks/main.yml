@@ -44,6 +44,7 @@
     sshd_manage_service
     and ansible_virtualization_type != 'docker'
     and ansible_os_family == 'Darwin'
+  changed_when: False
 
 - name: Register that this role has run
   set_fact: sshd_has_run=true
